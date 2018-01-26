@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<title>Test </title>
+<meta http-equiv="Content-Type"
+	content="application/xhtml+xml; charset=UTF-8" />
+</h:head>
+<h:body>
+
+	<h:form>
+		<h:inputText id="name" value="#{names.name}" required="true" requiredMessage="Name is required"/>
+		<h:commandButton id="submit" value="Submit" action="index"/>  
+	</h:form>
+	
+	<h3>Current Cache Contents:</h3>
+	<br/>	
+	
+	<ui:repeat value="#{names.cache}" var="entry">
+    	#{entry}<br/>
+	</ui:repeat>
+
+</h:body>
+</html>
