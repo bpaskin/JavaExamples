@@ -7,15 +7,15 @@ Small application tested on tWASv9 and Liberty (jsf-2.2 feature) that has 3 page
 Application to test the Object Cache in both tWAS and Liberty. 
 
 For Liberty Add the following features:
-    <featureManager>
+``  <featureManager>
         <feature>distributedMap-1.0</feature>
         <feature>ejbLite-3.1</feature>
         <feature>jsf-2.0</feature>
         <feature>servlet-3.1</feature>
-    </featureManager>
+    </featureManager>``
  
  And add the following cache:
- <distributedMap id="cache" jndiName="cache/test"/>
+`` <distributedMap id="cache" jndiName="cache/test"/> ``
  
  For tWAS:
  1. Optional: Create replication domain, if going to be used across servers.  (Environment > Replication Domains > New...)
