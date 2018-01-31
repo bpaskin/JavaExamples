@@ -21,3 +21,5 @@ For Liberty Add the following features:
  1. Optional: Create replication domain, if going to be used across servers.  (Environment > Replication Domains > New...)
  2. Create a new Object Cache and link Replication Domain, if using it.  (Resources > Cache Instances > Object Cache Instances > New...).  The JNDI name should be called "cache/test".  Make sure the cache is created at the correct scope.
  
+# MQTester
+Small application that allows user to input the JNDI of a Queue Connection Factory and Queue name and PUT, GET, or PUT and GET a messgae from the Queue entered. 
