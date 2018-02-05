@@ -27,13 +27,7 @@
 		  	<artifactId>liberty-target</artifactId>
 		  	<version>RELEASE</version>
 		  	<type>pom</type>
-		  	<scope>provided</scope>
-		  	<exclusions>
-		  		<exclusion>
-		  			<groupId>javax.validation</groupId>
-		  			<artifactId>validation-api</artifactId>
-		  		</exclusion>
-		  	</exclusions>
+			<scope>provided</scope>
     	</dependency>
     	<dependency>
     		<groupId>org.springframework.boot</groupId>
