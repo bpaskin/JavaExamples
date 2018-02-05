@@ -34,3 +34,6 @@ For this example the endpoints for the RESTful services are http://host:port/Swa
 Another solution would be to download the Swagger UI and have a servlet generate the index.html on load or duplicate its functionality.
 
 If this is going to be run in Liberty, the application needs to be exanded using: ``<applicationManager autoExpand="true"/>`` in the server.xml.
+
+# SpringBootSwagger
+This is an example similar to the Swagger Example, but using Spring Boot and SpringFox to integrate with Swagger and Swagger UI.  Like the previous example, both Swagger annotated and non Swagger annotated classes work with Swagger.  The classes does not use JAX-RS, but the Spring specific annotations for RESTful services.  The Spring UI can be found at http://host:port/SpringBootSwagger/swagger-ui.html .  The Swagger JSON can be found at http://host:port/SpringBootSwagger/v2/api-docs .
