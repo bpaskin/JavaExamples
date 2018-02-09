@@ -39,3 +39,6 @@ If this is going to be run in Liberty, the application needs to be exanded using
 This is an example similar to the Swagger Example, but using Spring Boot and SpringFox to integrate with Swagger and Swagger UI.  Like the previous example, both Swagger annotated and non Swagger annotated classes work with Swagger.  The classes does not use JAX-RS, but the Spring specific annotations for RESTful services.  The Spring UI can be found at http://host:port/SpringBootSwagger/swagger-ui.html .  The Swagger JSON can be found at http://host:port/SpringBootSwagger/v2/api-docs .
 
 If this is going to be run in Liberty, the application needs to be exanded using: ``<applicationManager autoExpand="true"/>`` in the server.xml.
+
+# Datasource Tester
+This is a small application that grabs a connection based on JDBC JNDI name and gets the Database information and tests the connection by receiving a list of tables.  Receiving the list of tables is necessary to actually test the connection since the connections in the datasource pool may be stale.  There is a single page that requires the input of the datasource JNDI name. Errors are written to System Error log. This was tested on tWASv8.5.5.x and Liberty.
