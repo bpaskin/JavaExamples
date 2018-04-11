@@ -1,0 +1,30 @@
+<server description="MicroProfile">
+    <featureManager>
+        <feature>jpa-2.1</feature>
+        <feature>mpConfig-1.2</feature>
+        <feature>mpFaultTolerance-1.0</feature>
+        <feature>mpHealth-1.0</feature>
+        <feature>mpMetrics-1.1</feature>
+        <feature>mpOpenAPI-1.0</feature>
+        <feature>mpRestClient-1.0</feature>
+    	<feature>ejbLite-3.2</feature>
+    </featureManager>
+
+	<httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/> 
+
+	<keyStore id="defaultKeyStore" location="${server.config.dir}/resources/security/key.jks" password="password"/>
+  
+ 	<quickStartSecurity userName="user" userPassword="password"/>
+ 
+	<!-- need to include location of MySQL Libary -->
+    <library id="MySQL" name="MySQL">
+        <fileset dir="${server.output.dir}/resources" includes="*.jar"/>
+    </library>
+    
+	<!-- host, port, DB, username, and password must be specified -->
+	<dataSource id="artists" jndiName="jdbc/artists" queryTimeout="2000" type="javax.sql.ConnectionPoolDataSource">
+		<jdbcDriver javax.sql.ConnectionPoolDataSource="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource" libraryRef="MySQL"/>
+		<properties URL="jdbc:mysql://host:3306/devworks" password="password" user="user"/>
+		<connectionManager connectionTimeout="1s" maxPoolSize="10" minPoolSize="0" purgePolicy="FailingConnectionOnly"/>
+	</dataSource>
+</server>
