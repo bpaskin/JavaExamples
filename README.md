@@ -29,8 +29,6 @@ Liberty has a great feature called [apiDiscovery](https://www.ibm.com/support/kn
 
 If you want to create your own this example shows you how.  It allows for both Swagger API annotated and regular JAX-RS classes without Swagger annotations to be documented by the Swagger API.  The difficult part is the Swagger UI.  It can be [downloaded](https://github.com/swagger-api/swagger-ui) and added to the project, while changing the index.html page to suite the needs of the application.  In this example the POM downloads the compressed tarball, uncompresses it, places it in the appropriate directory and then updates the default URL to the one for this project.
 
-# MicroProfileExample
-Using MicroProfile 1.3 and the features Config, Fault Tolerance, Health Check, Metrics, Rest Client, and OpenAPI.  Just a small sample of how to use these features together.
 For this example the endpoints for the RESTful services are http://host:port/SwaggerExample/services .  The Swagger JSON is found at http://host:port/SwaggerExample/services/swagger.json .  Finally, the Swagger UI can be found at http://host:port/SwaggerExample/swagger-ui .
 
 Another solution would be to download the Swagger UI and have a servlet generate the index.html on load or duplicate its functionality.
@@ -44,3 +42,6 @@ If this is going to be run in Liberty, the application needs to be exanded using
 
 # Datasource Tester
 This is a small application that grabs a connection based on JDBC JNDI name and gets the Database information and tests the connection by receiving a list of tables.  Receiving the list of tables is necessary to actually test the connection since the connections in the datasource pool may be stale.  There is a single page that requires the input of the datasource JNDI name. Errors are written to System Error log. This was tested on tWASv8.5.5.x and Liberty.
+
+# MicroProfileExample
+Using MicroProfile 1.3 and the features Config, Fault Tolerance, Health Check, Metrics, Rest Client, and OpenAPI.  Just a small sample of how to use these features together.
