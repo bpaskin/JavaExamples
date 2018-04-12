@@ -12,14 +12,9 @@ import javax.ws.rs.ext.Provider;
 public class ErrorResponseMapper implements ExceptionMapper<WebApplicationException> {
 	private static String CLASSNAME = ErrorResponseMapper.class.getName();
 	private static Logger LOGGER = Logger.getLogger(CLASSNAME);
-
-	public ErrorResponseMapper() {
-		System.out.println(">>> Here");
-	}
 	
 	@Override
 	public Response toResponse(WebApplicationException ex) {
-		System.out.println(">>> Here2");
 		LOGGER.entering(CLASSNAME, "toResponse", ex.getMessage());
 		Error error = new Error();
 		error.setStatus(ex.getResponse().getStatus());
