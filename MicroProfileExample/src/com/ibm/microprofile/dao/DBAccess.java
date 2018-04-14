@@ -48,6 +48,7 @@ public class DBAccess {
 		LOGGER.entering(CLASSNAME, "addArtist", name);
 		Artist artist = new Artist();
 		artist.setName(name);
+		em.setProperty("javax.persistence.lock.timeout", 200);
 		em.persist(artist);
 		LOGGER.exiting(CLASSNAME, "addArtist");
 	}
@@ -67,6 +68,7 @@ public class DBAccess {
 		artistBean.setName(artist);
 		releaseBean.setArtistBean(artistBean);
 		
+		em.setProperty("javax.persistence.lock.timeout", 200);
 		em.persist(releaseBean);
 		LOGGER.exiting(CLASSNAME, "addRelease");
 	}
