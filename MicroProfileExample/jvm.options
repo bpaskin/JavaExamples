@@ -1,2 +1,2 @@
 -DprimeDb=Marduk>Panzer Division Marduk>1999,Watain>TRIDENT WOLF ECLIPSE>2018
--DgetAllArtists=http://localhost:9080/MicroProfileExample/services/v1/artists
+-DgetAllArtists=http://localhost:9080/MicroProfileExample/services/
