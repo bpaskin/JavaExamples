@@ -24,6 +24,9 @@ import com.ibm.microprofile.model.Artist;
 public class HealthChecker implements HealthCheck {
 	private static String CLASSNAME = HealthChecker.class.getName();
 	private static Logger LOGGER = Logger.getLogger(CLASSNAME);
+	
+	// Can use JAX-RS 2.1 timeout.  However, Liberty does not support JEE8 yet
+	private static String JAXRSTIMEOUT="com.ibm.ws.jaxrs.client.receive.timeout";
 
 	
 	@Inject @ConfigProperty(name="getAllArtists")
@@ -43,7 +46,7 @@ public class HealthChecker implements HealthCheck {
 		try {		
 			// using MP Client
 			URL apiUrl = new URL(getAllArtistsURL);
-			ClientService client = RestClientBuilder.newBuilder().baseUrl(apiUrl).build(ClientService.class);
+			ClientService client = RestClientBuilder.newBuilder().property(JAXRSTIMEOUT, "1000").baseUrl(apiUrl).build(ClientService.class);
 			List<Artist> artist = client.getAllArtists();
 			
 			if (null == artist) {
