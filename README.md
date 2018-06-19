@@ -29,6 +29,8 @@ Liberty has a great feature called [apiDiscovery](https://www.ibm.com/support/kn
 
 If you want to create your own this example shows you how.  It allows for both Swagger API annotated and regular JAX-RS classes without Swagger annotations to be documented by the Swagger API.  The difficult part is the Swagger UI.  It can be [downloaded](https://github.com/swagger-api/swagger-ui) and added to the project, while changing the index.html page to suite the needs of the application.  In this example the POM downloads the compressed tarball, uncompresses it, places it in the appropriate directory and then updates the default URL to the one for this project.
 
+# AppSecurityExample
+A sample of several best practices when securing JEE applications.  Passwords are not encoded for example purposes only.  Normally they would be encoded and kept somewhere safe and not hard coded in the application.
 For this example the endpoints for the RESTful services are http://host:port/SwaggerExample/services .  The Swagger JSON is found at http://host:port/SwaggerExample/services/swagger.json .  Finally, the Swagger UI can be found at http://host:port/SwaggerExample/swagger-ui .
 
 Another solution would be to download the Swagger UI and have a servlet generate the index.html on load or duplicate its functionality.
