@@ -1,0 +1,42 @@
+<server description="SecurityExample">
+
+    <featureManager>
+    	<feature>cdi-1.2</feature>
+    	<feature>ejbLite-3.2</feature>
+    	<feature>federatedRegistry-1.0</feature>
+    	<feature>jaxrs-2.0</feature>
+    	<feature>jaxws-2.2</feature>
+		<feature>jsf-2.2</feature>
+		<feature>wsSecurity-1.1</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint">
+    	<httpOptions removeServerHeader="true"/>
+    </httpEndpoint>
+
+    <sslDefault sslRef="defaultSSLConfig"/>
+	<ssl id="defaultSSLConfig" sslProtocol="TLSv1.2"/>
+
+    <webContainer disableXPoweredBy="true"/>
+
+    <!-- Passwords should always be encrypted -->
+    <keyStore password="LibertyAS"/>
+    
+    <!-- Passwords should always be encrypted -->
+	<basicRegistry id="basic" realm="LibertyRealm">
+		<user name="user1" password="user1"/>
+		<user name="admin" password="admin"/>
+		<group id="Users" name="Users">
+			<member name="user1"/>
+			<member name="admin"/>
+		</group>
+		<group id="Admins" name="Admins">
+			<member name="admin"/>
+		</group>
+	</basicRegistry>
+	
+	<!-- Specify WS-Security Provider with a specific user -->
+	<wsSecurityProvider ws-security.username="user1">
+    	<callerToken name="UsernameToken"/>
+    </wsSecurityProvider>
+</server>

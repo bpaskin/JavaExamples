@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Welcome</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+	<script type="text/javascript" src="ajax.js"/>
+</h:head>
+<h:body onload="getAjax()">	
+	<h1>Welcome to the SECURED welcome page!</h1>
+	
+	<h3>Form Logout</h3>
+	
+	<form method="post" action="ibm_security_logout">
+		<input type="submit" name="logout" value="Logout"/>
+		<input TYPE="hidden" name="logoutExitPage" value="/index.xhtml"/>
+ 	</form>  
+ 	
+ 	<p>Servlet <h:outputLink value="logout">logout</h:outputLink></p>
+ 	
+ 	<c:if test="#{request.isUserInRole('Admins')}">
+ 		<p>Go to <h:link value="admin page" outcome="admin/index.xhtml"/></p>
+	</c:if>
+	
+	<p>username: #{infoBean.name}</p>
+	<p>administrator: #{infoBean.admin}</p>
+	<p>random number: #{infoBean.random}</p>
+	
+	<h3>XMLHttpRequest:</h3>
+	<div id="ajax">
+		<p>The XMLHttpRequest Object</p>
+	</div>
+
+</h:body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Logon</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+</h:head>
+<h:body>	
+	<h1>Welcome to the Logon Page!</h1>
+	
+	<form name="loginForm" method="post" action="j_security_check">
+		<p><strong>Please type your user name: </strong>
+			<input type="text" name="j_username" size="25"/></p>
+		<p><strong>Please type your password: </strong>
+			<input type="password" size="15" name="j_password" autocomplete="off"/></p>
+		<p>
+		<input type="submit" value="Submit"/>
+		<input type="reset" value="Reset"/></p>
+ </form>  
+	
+</h:body>
+</html>

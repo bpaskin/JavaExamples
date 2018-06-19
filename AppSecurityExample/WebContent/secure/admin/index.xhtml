@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Welcome</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+</h:head>
+<h:body>	
+	<h1>Welcome to the ADMIN welcome page!</h1>
+	
+	<h3>Form Logout</h3>
+	<form name="LogoutForm" method="post" action="ibm_security_logout">
+		<input type="submit" name="logout" value="Logout"/>
+		<input TYPE="hidden" name="logoutExitPage" VALUE="/index.xhtml"/>
+ 	</form>  
+ 	
+ 	<p>Servlet <h:outputLink value="#{request.contextPath}/secure/logout">logout</h:outputLink></p>
+</h:body>
+</html>
