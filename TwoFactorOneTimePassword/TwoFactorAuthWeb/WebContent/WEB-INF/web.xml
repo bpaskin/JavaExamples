@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+	<display-name>TwoFactorAuthWeb</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<security-constraint>
+		<display-name>SecureConstraint</display-name>
+		<web-resource-collection>
+			<web-resource-name>secureResource</web-resource-name>
+			<url-pattern>/secure/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>Admins</description>
+			<role-name>Administrators</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/logon.jsp</form-login-page>
+			<form-error-page>/logon.jsp?error=true</form-error-page>
+		</form-login-config>
+	</login-config>
+	
+	<security-role>
+		<role-name>secureRole</role-name>
+	</security-role>
+	
+	<security-role>
+		<role-name>Administrators</role-name>
+	</security-role>
+	
+</web-app>
