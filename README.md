@@ -50,3 +50,6 @@ Using MicroProfile 1.3 and the features Config, Fault Tolerance, Health Check, M
 
 # TwoFactorOneTimePassword
 Two Factor One Time Password with Google Authenticator for Liberty and tWAS.  This is a LoginModule and sample application that secures an applications using Google Authenticator.  Sample setup with server.xml.  Requires a database to store the Google Authenticator codes.  
+
+# WASListenerPortCheck
+For tWASv855 and later.  This is older code that I adapted to use EJB timers, generics, and exception handling in Java 8.  This runs every 30 seconds and checks the Listener Ports.  If they are stopped, they are automatically started.  Must map LPAdmin security role to user or group that has administrative privledges.
