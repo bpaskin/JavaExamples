@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Login</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+</h:head>
+
+<h:body>	
+	<div>
+		<h3>Login</h3>
+  		<h:form id="LoginForm">
+			<fieldset>
+		  		<h:panelGrid id = "panel" columns = "2" border = "1" cellpadding = "10" cellspacing = "0">
+			  		<h:outputLabel for="username" value="username" title="username"/>
+			  		<h:inputText id="username" value="#{loginBean.username}" title="username" required="true" requiredMessage="username is required"/>
+			  		<h:outputLabel for="password" value="password" title="password"/>
+			  		<h:inputText id="password" value="#{loginBean.password}" title="password" required="true" requiredMessage="password is required"/>
+					<h:commandButton id="login" value="Login" action="#{loginBean.login}"/>
+				</h:panelGrid>
+			</fieldset>
+		</h:form>
+	</div>
+	
+	<h:messages id="messages" style="color:red"/> 
+</h:body>
+</html>

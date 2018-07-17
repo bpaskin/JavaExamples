@@ -1,0 +1,49 @@
+<server description="Testing">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>localConnector-1.0</feature>
+		<feature>transportSecurity-1.0</feature>
+		<feature>servlet-4.0</feature>
+	    <feature>jsonb-1.0</feature>
+        <feature>appSecurity-3.0</feature>
+        <feature>jsp-2.3</feature>
+    	<feature>jsf-2.3</feature>
+		<feature>beanValidation-2.0</feature>
+		<feature>cdi-2.0</feature>
+		<feature>jdbc-4.2</feature>
+		<feature>ejbLite-3.2</feature>
+	    <feature>jaxrs-2.1</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <keyStore password="{aes}yourpassword"/>
+
+    <basicRegistry>
+    	<user name="user" password="user"/>
+    	<user name="admin" password="admin"/>
+    	<group name="user">
+    		<member name="user"/>
+    		<member name="admin"/>
+    	</group>
+    	<group name="admin">
+    		<member name="admin"/>
+    	</group>
+    </basicRegistry>
+
+    <applicationMonitor updateTrigger="mbean"/>
+    
+	<library id="MySQLLib" name="MySQLLib">
+        <fileset dir="${server.config.dir}/lib/" includes="*.jar"/>
+    </library>
+    
+	<jdbcDriver id="MySQLJDBCDriver" libraryRef="MySQLLib"/>
+	
+    <dataSource id="mySQL" jdbcDriverRef="MySQLJDBCDriver" jndiName="jdbc/users">
+        <properties URL="jdbc:mysql://host:port/database" password="{aes}yourdbpassword" user="youruserid"/>
+        <connectionManager agedTimeout="-1" connectionTimeout="5s" maxIdleTime="5m" maxPoolSize="10" minPoolSize="0" purgePolicy="FailingConnectionOnly"/>
+    </dataSource>  
+    
+	<webApplication id="JEE8Examples" location="JEE8Examples.war" name="JEE8Examples"/>
+</server>
