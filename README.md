@@ -1,5 +1,8 @@
 # JavaExamples
 
+Lunch and Learn slides: https://ibm.box.com/s/r2rfadfhgghur7xiga2jxxsmvhty4wi0
+Some slides may be out of date now.
+
 # JSFParams
 Small application tested on tWASv9 and Liberty (jsf-2.2 feature) that has 3 pages.  the index page the user enters a name and it is passed to the backing bean.  Page 2 and Page 3 read the backing bean from the HttpSession.
 
@@ -53,3 +56,6 @@ Two Factor One Time Password with Google Authenticator for Liberty and tWAS.  Th
 
 # WASListenerPortCheck
 For tWASv855 and later.  This is older code that I adapted to use EJB timers, generics, and exception handling in Java 8.  This runs every 30 seconds and checks the Listener Ports.  If they are stopped, they are automatically started.  Must map LPAdmin security role to user or group that has administrative privledges.
+
+# JEE8Examples
+Some examples of major updates to JEE8.  Not all features of JEE8 implemented.
