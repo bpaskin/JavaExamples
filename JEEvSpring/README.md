@@ -14,31 +14,27 @@ Testing was done using JMeter headless.  The script can be found in the `jmeter`
 - Spring usually does make good choices for performance, but those advantages disappear when added to JEE applications.
 
 # Results
---- Simple REST calls ---
+Simple REST calls
 
-Liberty    perfRESTJEE    3631 ms
+| Platform | Description | Time
+| --- | --- | --- |
+|Liberty|perfRESTJEE|3631 ms|
+|Liberty|perfRESTSpring|2909 ms|
+|SpringBoot|perfRESTSpring|3064 ms|
 
-Liberty    perfRESTSpring 2909 ms
+REST with JPA
 
-SpringBoot perfRESTSpring 3064 ms
+| Platform | Description | Time
+| --- | --- | --- |
+|Liberty|perfRESTJPAJEE|65531 ms|
+|Liberty|perfRESTJPASpring|37076 ms|
+|SpringBoot|perfRESTJPASpring|37757 ms|
+|Liberty|perfRESTJPAJEE-EMF|2310 ms **|
 
-
---- REST with JPA ---
-
-Liberty    perfRESTJPAJEE     65531 ms
-
-Liberty    perfRESTJPASpring  37076 ms
-
-SpringBoot perfRESTJPASpring  37757 ms
-
-Liberty    perfRESTJPAJEE-EMF 2310 ms **
-
-
--- REST with JPA (EclipseLink) ---
-
-Liberty    perfRESTJPASpring-EL 37709 ms
-
-SpringBoot perfRESTJPASpring-EL 76791 ms
-
+REST with JPA (EclipseLink)
+| Platform | Description | Time
+| --- | --- | --- |
+|Liberty|perfRESTJPASpring-EL|37709 ms|
+|SpringBoot|perfRESTJPASpring-EL|76791 ms|
 
 ** = Static EntityManagerFactory
