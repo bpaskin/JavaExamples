@@ -6,6 +6,10 @@ The tests were run inside an IBM Liberty 18.0.0.3 App Server using IBM JRE 8.0.5
 
 Testing was done using JMeter headless.  The script can be found in the `jmeter` directory.  I created a small script that would call the JMeter script 10 times, gather results, and print out the average result in milliseconds.  There is a 20 second pause between iterations.  The script runs 25 threads asynchronously and adds a user, called "Brian", gets the user, gets all users and then finally clears the entries.
 
+Sample of starting the SpringBoot applications:
+
+```/opt/IBM/WebSphere/wlp/java/ibm-java-x86_64-80/jre/bin/java -Xms1024m -Xmx1024m -Dserver.port=9080 -Dserver.servlet.context-path=/PerfRESTJEE -jar /opt/IBM/WebSphere/wlp/usr/servers/perfRESTJPASpring/apps/PerfRESTJPASpring.jar```
+
 # Thoughts
 - Spring does save time coding in some areas, but not as much as I would expect.  On a larger project it could save much more time coding with Spring.
 - There is currently nothing like Spring MVC in JEE.  JEE has JSF.  That is request based vs component based discussion.
