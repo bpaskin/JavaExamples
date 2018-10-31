@@ -32,6 +32,7 @@ REST with JPA
 |Liberty|perfRESTJPAJEE-EMF|2310 ms **|
 
 REST with JPA (EclipseLink)
+
 | Platform | Description | Time
 | --- | --- | --- |
 |Liberty|perfRESTJPASpring-EL|37709 ms|
