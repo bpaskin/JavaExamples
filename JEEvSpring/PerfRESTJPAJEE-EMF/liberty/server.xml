@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="perfRESTJEE">
+
+    <featureManager>
+        <feature>jaxrs-2.1</feature>
+		<feature>jpa-2.2</feature>
+		<feature>cdi-2.0</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="-1" host="*"/>
+                  
+    <applicationManager autoExpand="true"/>
+
+    <library id="MySQL" name="MySQL">
+        <fileset dir="${shared.resource.dir}" includes="*.jar"/>
+    </library>
+
+     <dataSource id="DevWorks" jndiName="jdbc/devworks" type="javax.sql.ConnectionPoolDataSource" isolationLevel="TRANSACTION_READ_COMMITTED" statementCache="100">
+        <jdbcDriver javax.sql.ConnectionPoolDataSource="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource" libraryRef="MySQL"/>
+		<properties URL="jdbc:mysql://localhost:3306/devworks" password="myuserid" user="mypassword" useUnicode="true" useJDBCCompliantTimezoneShift="true" useLegacyDatetimeCode="false" serverTimezone="UTC" />
+		<connectionManager connectionTimeout="1s" minPoolSize="0" maxPoolSize="500" purgePolicy="FailingConnectionOnly" maxIdleTime="5m"/>
+    </dataSource>
+
+    <webApplication location="PerfRESTJPAJEE-EMF.war" name="PerfRESTJPAJEE" contextRoot="/PerfRESTJEE" />
+</server>
