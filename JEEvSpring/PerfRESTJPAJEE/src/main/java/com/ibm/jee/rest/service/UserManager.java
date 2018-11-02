@@ -18,6 +18,8 @@ import com.ibm.jee.enterprise.UserDAO;
 import com.ibm.jee.jpa.model.User;
 
 @Path("manage")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class UserManager {
 	
 	@Inject
@@ -25,23 +27,18 @@ public class UserManager {
 
 	@GET
 	@Path("user/{name}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getUser(@PathParam("name") String name) {
 		return dao.getUser(name);
 	}
 	
 	@GET
 	@Path("allusers")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public @NotNull List<User> getAllUsers() {
 		return dao.listAllUsers();
 	}
 	
 	@POST
 	@Path("adduser")	
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addUser(@Valid User user) {
 		dao.addUser(user.getName());
 		return Response.ok().build();
@@ -49,7 +46,6 @@ public class UserManager {
 	
 	@GET
 	@Path("clear")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response clearUsers() {
 		dao.clear();
 		return Response.ok().build();

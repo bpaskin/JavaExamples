@@ -2,29 +2,28 @@ package com.ibm.jee.enterprise;
 
 import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import javax.transaction.Transactional.TxType;
 
 import com.ibm.jee.jpa.model.User;
 
 @Stateless
-@LocalBean
-@Transactional(value=TxType.REQUIRES_NEW)
 public class UserDAO {
 	
 	@PersistenceContext(unitName="PerfRESTJPAJEE")
 	private EntityManager em;
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void addUser(String name) {
 		User user = new User();
 		user.setName(name);
 		em.persist(user);
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void clear() {
 		em.createNamedQuery("User.deleteAll").setHint("javax.persistence.query.timeout", 5000).executeUpdate();
 	}

@@ -7,9 +7,9 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="perfusers")
-@NamedQuery(name="User.findAll", query="SELECT u FROM User u")
+@NamedQuery(name="User.findAll", query="SELECT u FROM User u", lockMode=LockModeType.PESSIMISTIC_READ)
 @NamedQuery(name="User.deleteAll", query="DELETE FROM User")
-@NamedQuery(name="User.findUser", query="SELECT u FROM User u WHERE u.name = :name")
+@NamedQuery(name="User.findUser", query="SELECT u FROM User u WHERE u.name = :name", lockMode=LockModeType.PESSIMISTIC_READ)
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
