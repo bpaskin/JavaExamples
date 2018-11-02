@@ -16,7 +16,7 @@ Sample of starting the SpringBoot applications:
 - When I added EclipseLink as the JPA provider in Spring, instead of the default Hibernate, I had to change the value of Entity field to Integer from int.  I am not sure why, since it works as int with Hibernate and as int within Liberty, which uses EclipseLink.
 - Running an application as a Spring Boot application solo using Tomcat, is slower than when using the applications within Liberty.
 - Spring usually does make good choices for performance, but those advantages disappear when added to JEE applications.
-- Spring does not honor the `@Transactional` when doing certain method calls provided by Spring, like `save()` or `findAll()`.  Instead Spring changes the isolation level, and transaction propagation.  This gives Spring an advantage when doing non update functions, but IMO, Spring should really respect the isolation level and propagation that is set.  When changing the isolation levels and propagation on the methods in JEE then JEE is faster.   
+- Spring does not honor the `@Transactional` when doing certain method calls provided by Spring, like `save()` or `findAll()`. Instead Spring changes propagation and isolation level.  This may not be optimal for all.
 
 # Results
 Simple REST calls
@@ -31,7 +31,7 @@ REST with JPA
 
 | Platform | Description | Time
 | --- | --- | --- |
-|Liberty|perfRESTJPAJEE|65531 ms|
+|Liberty|perfRESTJPAJEE|33054 ms|
 |Liberty|perfRESTJPASpring|37076 ms|
 |SpringBoot|perfRESTJPASpring|37757 ms|
 
