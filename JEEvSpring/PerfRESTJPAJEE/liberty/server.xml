@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<server description="perfRESTJEE">
+<server description="perfRESTJPAJEE">
 
     <featureManager>
         <feature>jaxrs-2.1</feature>
-		<feature>jpa-2.2</feature>
-		<feature>cdi-2.0</feature>
+	<feature>jpa-2.2</feature>
+	<feature>cdi-2.0</feature>
+	<feature>ejbLite-3.2</feature>
     </featureManager>
 
     <httpEndpoint id="defaultHttpEndpoint" httpPort="9080" httpsPort="-1" host="*"/>
-                  
-    <applicationManager autoExpand="true"/>
 
     <library id="MySQL" name="MySQL">
         <fileset dir="${shared.resource.dir}" includes="*.jar"/>
