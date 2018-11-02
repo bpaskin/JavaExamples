@@ -34,7 +34,6 @@ REST with JPA
 |Liberty|perfRESTJPAJEE|65531 ms|
 |Liberty|perfRESTJPASpring|37076 ms|
 |SpringBoot|perfRESTJPASpring|37757 ms|
-|Liberty|perfRESTJPAJEE-EMF|2310 ms **|
 
 REST with JPA (EclipseLink)
 
@@ -42,5 +41,3 @@ REST with JPA (EclipseLink)
 | --- | --- | --- |
 |Liberty|perfRESTJPASpring-EL|37709 ms|
 |SpringBoot|perfRESTJPASpring-EL|76791 ms|
-
-** = Static EntityManagerFactory
