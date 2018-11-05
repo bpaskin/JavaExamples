@@ -14,8 +14,8 @@ Sample of starting the SpringBoot applications:
 - Spring does save time coding in some areas, but not as much as I would expect.  On a larger project it could save much more time coding with Spring.
 - There is currently nothing like Spring MVC in JEE.  JEE has JSF.  That is request based vs component based discussion.
 - When I added EclipseLink as the JPA provider in Spring, instead of the default Hibernate, I had to change the value of Entity field to Integer from int.  I am not sure why, since it works as int with Hibernate and as int within Liberty, which uses EclipseLink.
-- Running an application as a Spring Boot application solo using Tomcat, is slower than when using the applications within Liberty.
-- Spring usually does make good choices for performance, but those advantages disappear when added to JEE applications.
+- Running an application as a Spring Boot application solo using Tomcat, is equal to or slower than when using the applications within Liberty.
+- Spring usually does make good choices for performance, but not always optimal and those advantages disappear when run against a JEE applications
 - Spring does not honor the `@Transactional` when doing certain method calls provided by Spring, like `save()` or `findAll()`. Instead Spring changes propagation and isolation level.  This may not be optimal for all.
 
 *UPDATE 05/11/2018* - I changed the lock strategy on the Named Queries on all and the results reflect the change.
