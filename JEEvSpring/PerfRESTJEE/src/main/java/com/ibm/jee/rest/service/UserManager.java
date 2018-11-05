@@ -16,6 +16,8 @@ import javax.ws.rs.core.Response;
 import com.ibm.jee.rest.model.User;
 
 @Path("manage")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class UserManager {
 
 	private final AtomicLong counter = new AtomicLong();
@@ -23,23 +25,18 @@ public class UserManager {
 
 	@GET
 	@Path("user/{name}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public User getUser(@PathParam("name") String name) {
 		return new User(counter.incrementAndGet(), name);
 	}
 	
 	@GET
 	@Path("allusers")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> getAllUsers() {
 		return users;
 	}
 	
 	@POST
 	@Path("adduser")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addUser(User user) {
 		users.add(user);
 		return Response.ok().build();
@@ -47,7 +44,6 @@ public class UserManager {
 	
 	@GET
 	@Path("clear")
-	@Consumes(MediaType.APPLICATION_JSON)
 	public Response clearUsers() {
 		users.clear();
 		return Response.ok().build();
