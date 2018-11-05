@@ -18,6 +18,8 @@ Sample of starting the SpringBoot applications:
 - Spring usually does make good choices for performance, but those advantages disappear when added to JEE applications.
 - Spring does not honor the `@Transactional` when doing certain method calls provided by Spring, like `save()` or `findAll()`. Instead Spring changes propagation and isolation level.  This may not be optimal for all.
 
+*UPDATE 05/11/2018* - I changed the lock strategy on the Named Queries on all and the results reflect the change.
+
 # Results
 Simple REST calls
 
@@ -31,13 +33,13 @@ REST with JPA
 
 | Platform | Description | Time
 | --- | --- | --- |
-|Liberty|perfRESTJPAJEE|33054 ms|
-|Liberty|perfRESTJPASpring|37076 ms|
-|SpringBoot|perfRESTJPASpring|37757 ms|
+|Liberty|perfRESTJPAJEE|32605 ms|
+|Liberty|perfRESTJPASpring|34864 ms|
+|SpringBoot|perfRESTJPASpring|34694 ms|
 
 REST with JPA (EclipseLink)
 
 | Platform | Description | Time
 | --- | --- | --- |
-|Liberty|perfRESTJPASpring-EL|37709 ms|
-|SpringBoot|perfRESTJPASpring-EL|76791 ms|
+|Liberty|perfRESTJPASpring-EL|36181 ms|
+|SpringBoot|perfRESTJPASpring-EL|78207 ms|
