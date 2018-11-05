@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.LockModeType;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.PositiveOrZero;
@@ -13,7 +14,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="perfusers")
-@NamedQuery(name="User.findUser", query="SELECT u FROM User u where u.name =:name")
+@NamedQuery(name="User.findUser", query="SELECT u FROM User u where u.name =:name", lockMode=LockModeType.PESSIMISTIC_READ)
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
