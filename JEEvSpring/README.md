@@ -43,3 +43,10 @@ REST with JPA (EclipseLink)
 | --- | --- | --- |
 |Liberty|perfRESTJPASpring-EL|36181 ms|
 |SpringBoot|perfRESTJPASpring-EL|78207 ms|
+
+- perfRESTJEE - REST calls using JEE
+- perfRESTSpring - REST calls using Spring Boot
+- perfRESTJPAJEE - REST calls with JPA using JEE
+- perfRESTJPASpring - REST calls with Hibernate JPA using Spring Boot
+- perfRESTJPASpring-EL - REST calls with EclipseLink JPA using Spring Boot
+- perfRESTJPADSSpring - REST calls with Hibernate JPA using JEE DataSource using Spring Boot
