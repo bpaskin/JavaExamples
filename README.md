@@ -58,3 +58,18 @@ For tWASv855 and later.  This is older code that I adapted to use EJB timers, ge
 
 # JEE8Examples
 Some examples of major updates to JEE8.  Not all features of JEE8 implemented.
+
+# JythonLiberty
+I wrote an [article](https://www.ibm.com/developerworks/websphere/techjournal/1201_paskin/1201_paskin.html) a few years ago about adding Jython to tWAS. This shows how to add Jython to Liberty and use the both PyServlet, use the Interpreter and import modules.  I decided against using the web.xml and made a simple Servlet to do the intercept of the Jython servlets.
+
+The [standalone Jython](https://mvnrepository.com/artifact/org.python/jython-standalone) needs to be downloaded and placed in the wlp/usr/shared/resources directory and referenced in the Liberty server.xml. 
+
+in the jvm.options file required is the 
+
+`-Dpython.home=/path/to/wlp/usr/shared/resources/jython-standalone-x.x.x.jar`
+
+optionally adding python.path can import other modules.  The paths can be separated by a colon (:)
+
+`-Dpython.path=/path/to/library1:/path/to/library2`
+
+Jython servlets should be placed in the WebContent directory.
