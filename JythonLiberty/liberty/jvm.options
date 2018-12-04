@@ -1,0 +1,4 @@
+# python.home needs to point to the installed standalone jar location or expanded location
+-Dpython.home=/path/to/wlp/usr/shared/resources/jython-standalone-x.x.x.jar
+# (optional) python.path for other python libraries that can be included
+-Dpython.path=/path/to/python/libs

@@ -1,0 +1,19 @@
+<server description="jython">
+
+    <featureManager>
+		<feature>servlet-4.0</feature>
+	    <feature>localConnector-1.0</feature>
+    </featureManager>
+
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+    
+    <!-- need to place jython-standalone-x.x.x.jar in the wlp/usr/shared/resources directory 
+    Standalone can be downloaded from https://mvnrepository.com/artifact/org.python/jython-standalone -->
+	<library id="Jython" name="Jython">
+        <fileset dir="${shared.resource.dir}" includes="jython-standalone-x.x.x.jar"/>
+    </library>
+
+	<webApplication id="PythonExample" location="PythonExample.war" name="PythonExample">
+		<classloader commonLibraryRef="Jython"/>
+	</webApplication>
+</server>
