@@ -1,0 +1,11 @@
+<server description="cdi">
+
+    <featureManager>
+		<feature>servlet-4.0</feature>
+    	<feature>cdi-2.0</feature>
+		<feature>ejbLite-3.2</feature>
+        <feature>jsf-2.3</feature>
+    </featureManager>
+
+    <httpEndpoint httpPort="9080" httpsPort="-1" id="defaultHttpEndpoint"/>
+</server>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans bean-discovery-mode="all" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_2_0.xsd">
+	<interceptors>
+		<class>com.ibm.example.cdi.interceptor.LoggingInterceptor</class>
+	</interceptors>
+	<decorators>
+		<class>com.ibm.example.cdi.decorator.LoggingDecorator</class>
+	</decorators>
+	<alternatives>
+		<class>
+			com.ibm.example.cdi.alternative.FavoriteDoctorAlternative
+		</class>
+	</alternatives>
+</beans>
