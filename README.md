@@ -73,3 +73,6 @@ optionally adding python.path can import other modules.  The paths can be separa
 `-Dpython.path=/path/to/library1:/path/to/library2`
 
 Jython servlets should be placed in the WebContent directory.
+
+# CDI2.0Examples
+CDI 2.0 examples including the Liberty server.xml.  Covers the diverse patterns and uses.   
