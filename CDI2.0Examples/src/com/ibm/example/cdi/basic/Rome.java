@@ -2,7 +2,7 @@ package com.ibm.example.cdi.basic;
 
 import javax.inject.Named;
 
-@Named("Rome")
+@Named("Roma")
 public class Rome implements City {
 	
     private String englishName = "Rome";
