@@ -2,7 +2,9 @@ package com.ibm.example.cdi.constructs;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.enterprise.context.RequestScoped;
 
+@RequestScoped
 public class DoctorWho {
 	 
 	private String doctor;
