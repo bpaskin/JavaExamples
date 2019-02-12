@@ -9,4 +9,5 @@
     <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
     
     <keyStore id="defaultKeyStore" location="${server.output.dir}/resources/security/key.jks" password="password" type="jks"/>
+    <keyStore id="defaultTrustStore" location="${server.output.dir}/resources/security/trust.jks" password="password" type="jks"/>
 </server>
