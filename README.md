@@ -75,4 +75,7 @@ optionally adding python.path can import other modules.  The paths can be separa
 Jython servlets should be placed in the WebContent directory.
 
 # CDI2.0Examples
-CDI 2.0 examples including the Liberty server.xml.  Covers the diverse patterns and uses.   
+CDI 2.0 examples including the Liberty server.xml.  Covers the diverse patterns and uses.  
+
+# MongoDBConnect
+A Mongo DB connection test that uses SSL.  Enter the userid, pw, database, server and port and connect.  Requries the MongoDB server public certificate in the truststore.
