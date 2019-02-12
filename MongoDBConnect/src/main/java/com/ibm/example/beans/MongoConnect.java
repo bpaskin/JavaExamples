@@ -70,6 +70,7 @@ public class MongoConnect implements Serializable{
 			MongoClient client = new MongoClient(address, credentials, sslOptions);
 			ClientSession session = client.startSession();
 			session.close();
+			client.close();
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Connection successful!"));
 		} catch (Exception e) {
 			e.printStackTrace(System.err);
