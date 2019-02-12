@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<title>Test MongoDB</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+</h:head>
+<h:body>
+	<h:form>
+		<fieldset>
+			<h:panelGrid id="panel" columns="2">
+				<h:outputLabel for="userid">UserID:</h:outputLabel>
+				<h:inputText id="userid" value="#{mongoConnect.userid}" required="true" requiredMessage="UserID is required"/>				
+
+				<h:outputLabel for="password">Password:</h:outputLabel>
+				<h:inputSecret id="password" value="#{mongoConnect.password}" required="true" requiredMessage="Password is required"/>
+				
+				<h:outputLabel for="database">Database:</h:outputLabel>
+				<h:inputText id="database" value="#{mongoConnect.database}" required="true" requiredMessage="Database is required"/>
+				
+				<h:outputLabel for="server">Server Name:</h:outputLabel>
+				<h:inputText id="server" value="#{mongoConnect.server}" required="true" requiredMessage="Server name is required"/>
+				
+				<h:outputLabel for="port">Port Number:</h:outputLabel>
+				<h:inputText id="port" value="#{mongoConnect.port}" required="true" requiredMessage="Porter number name is required">
+					<f:validateLongRange minimum="1000" maximum="65535" />
+				</h:inputText>
+								
+				<h:commandButton id="submit" value="Submit" action="#{mongoConnect.connectDB}"/> 
+				<br/> 
+			</h:panelGrid>
+		</fieldset>
+	</h:form>
+	
+	<h:messages/>
+</h:body>
+</html>
