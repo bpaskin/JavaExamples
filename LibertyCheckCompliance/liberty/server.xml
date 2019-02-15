@@ -1,0 +1,19 @@
+<server description="example">
+    <featureManager>
+	    <feature>localConnector-1.0</feature>
+    	<feature>transportSecurity-1.0</feature>
+		<feature>servlet-3.0</feature>
+		<feature>jsf-2.0</feature>
+	</featureManager>
+
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <featureManager>
+        <feature>ssl-1.0</feature>
+    </featureManager>
+
+     <applicationMonitor updateTrigger="mbean"/>
+    
+    <ssl clientAuthenticationSupported="true" id="defaultSSLConfig" keyStoreRef="defaultKeyStore" securityLevel="HIGH" sslProtocol="TLSv1" trustStoreRef="defaultTrustStore"/>
+    <ssl clientAuthenticationSupported="true" id="otherSSLSettings" keyStoreRef="defaultKeyStore" securityLevel="HIGH" sslProtocol="TLSv1.2" trustStoreRef="defaultTrustStore"/>
+</server>
