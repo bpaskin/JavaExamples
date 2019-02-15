@@ -6,3 +6,9 @@ This is only as an example and must be expanded to meet the needs of an organzia
 Usage: 
 
 `java -cp "LibertyComplianceCheck-1.0.0.0.jar:lib/*" com.ibm.validation.liberty.CheckCompliance /path/to/server.xml`
+
+Output is similar to:
+
+Feature: appSecurity-2.0 not found.
+
+Endpoint: must be less than or equal to -1
