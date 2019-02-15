@@ -79,3 +79,6 @@ CDI 2.0 examples including the Liberty server.xml.  Covers the diverse patterns 
 
 # MongoDBConnect
 A Mongo DB connection test that uses SSL.  Enter the userid, pw, database, server and port and connect.  Requries the MongoDB server public certificate in the truststore.
+
+# LibertyCheckCompliance
+A Java program that can read in a Liberty server.xml (or any other XML files) and use Bean Validation 2.0 to validate the entries.  This is good to check that all Liberty servers are following the standards set forth by an organization.
