@@ -82,3 +82,6 @@ A Mongo DB connection test that uses SSL.  Enter the userid, pw, database, serve
 
 # LibertyCheckCompliance
 A Java program that can read in a Liberty server.xml (or any other XML files) and use Bean Validation 2.0 to validate the entries.  This is good to check that all Liberty servers are following the standards set forth by an organization.
+
+# SpringBootOnWAS
+An simple example of using JAX RS with tWAS v855 that basically excludes the Boot part of Spring to work under tWAS and JEE6.
