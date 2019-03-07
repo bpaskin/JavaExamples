@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://raw.github.com/WASdev/ci.maven.tools/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+	<modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.ibm.example.spring</groupId>
+  <artifactId>SpringWeb</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0</version>
+
+  <name>SpringWeb</name>
+  <url>http://maven.apache.org</url>
+
+
+  <build>
+    <finalName>${project.name}</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  		<version>1.5.19.RELEASE</version>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>org.springframework.boot</groupId>
+  				<artifactId>spring-boot-starter-tomcat</artifactId>
+  			</exclusion>
+  			<exclusion>
+  				<groupId>com.fasterxml.jackson.core</groupId>
+  				<artifactId>jackson-databind</artifactId>
+  			</exclusion>
+  			<exclusion>
+  				<groupId>org.hibernate</groupId>
+  				<artifactId>hibernate-validator</artifactId>
+  			</exclusion>
+  			<exclusion>
+  				<groupId>org.springframework.boot</groupId>
+  				<artifactId>spring-boot-starter-logging</artifactId>
+  			</exclusion>
+  			<exclusion>
+  				<groupId>org.springframework.boot</groupId>
+  				<artifactId>spring-boot</artifactId>
+  			</exclusion>
+  			<exclusion>
+  				<groupId>org.springframework.boot</groupId>
+  				<artifactId>spring-boot-autoconfigure</artifactId>
+  			</exclusion>
+  		</exclusions>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>javax</groupId>
+  		<artifactId>javaee-api</artifactId>
+  		<version>6.0</version>
+  		<scope>provided</scope>
+  	</dependency>
+  </dependencies>
+  <description>Example of using SpringBoot that can be used in tWASv 85</description>
+</project>
