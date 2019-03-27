@@ -21,7 +21,7 @@ Sample of starting the SpringBoot applications:
 
 *UPDATE 20/03/2019* - Remove comment about Spring and @Transactional after speaking with Oliver D on twitter.  He has provided some insights and the code will need to be modified in the future for testing.
 
-*UPDATE 27/03/2019* - Added @Transactional annotation on the interface methods, and added DB pooling paraemters for Spring JPA.
+*UPDATE 27/03/2019* - Added @Transactional annotation on the interface methods, and added DB pooling parameters for Spring JPA.
 
 # Results
 Simple REST calls
