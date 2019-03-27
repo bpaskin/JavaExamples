@@ -19,6 +19,7 @@ Sample of starting the SpringBoot applications:
 
 *UPDATE 05/11/2018* - I changed the lock strategy on the Named Queries on all and the results reflect the change.
 *UPDATE 20/03/2019* - Remove comment about Spring and @Transactional after speaking with Oliver D on twitter.  He has provided some insights and the code will need to be modified in the future for testing.
+*UPDATE 27/03/2019* - Added Transactional annotation on the interface methods, and added DB pooling paraemters for Spring JPA.
 
 # Results
 Simple REST calls
