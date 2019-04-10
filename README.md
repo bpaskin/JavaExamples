@@ -85,3 +85,6 @@ A Java program that can read in a Liberty server.xml (or any other XML files) an
 
 # SpringBootOnWAS
 An simple example of using JAX RS with tWAS v855 that basically excludes the Boot part of Spring to work under tWAS and JEE6.
+
+# SimpleSecurity
+A basic example of using security constraints to protect pages/servlets.  In Liberty I am allowing all user that are authenticated to see the secured page, and setting up a user registry.  This will work with LDAP, OIDC, in the same manner, only the setup in Liberty or other app server would need to be changed.
