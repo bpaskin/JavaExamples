@@ -1,0 +1,13 @@
+<server description="KafkaProducer">
+
+    <featureManager>
+   		<feature>cdi-2.0</feature> 
+		<feature>ejbLite-3.2</feature>
+		<feature>jaxrs-2.1</feature>
+	    <feature>mpConfig-1.3</feature>
+	</featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <logging traceSpecification="*=info:com.ibm.example.*=finest"/>
+</server>
