@@ -88,3 +88,6 @@ An simple example of using JAX RS with tWAS v855 that basically excludes the Boo
 
 # SimpleSecurity
 A basic example of using security constraints to protect pages/servlets.  In Liberty I am allowing all user that are authenticated to see the secured page, and setting up a user registry.  This will work with LDAP, OIDC, in the same manner, only the setup in Liberty or other app server would need to be changed.
+
+# EventStreamsWithKafka
+Samples for Kafka with Producer, Consumer and Streams.  Can be used with IBM Cloud Event Streams by changing necessary parameters in the bootstrap.properties files.  Example with Open Liberty or Liberty.  Uses MicroProfile Config to inject parameters.  Producer is accessed through REST POST call to lookup search results on Google and return them.  Stream will filter them based on if "https" is used.
