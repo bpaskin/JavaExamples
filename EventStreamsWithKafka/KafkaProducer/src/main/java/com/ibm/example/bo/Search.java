@@ -67,7 +67,7 @@ public class Search {
     	// URLs that are displayed on the web page, and then sacve them to Result.  Return
     	// A list of results.
         List<Result> results = new ArrayList<>();
-        String pattern1 = "<h3 class=\"r\"><a href=\"/url?q=";
+        String pattern1 = "<a href=\"/url?q=";
         String pattern2 = "\">";
         Pattern p = Pattern.compile(Pattern.quote(pattern1) + "(.*?)" + Pattern.quote(pattern2));
         Matcher m = p.matcher(sb);
