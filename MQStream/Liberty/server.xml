@@ -1,0 +1,39 @@
+<server description="MQStream">
+
+    <featureManager>
+    	<feature>cdi-2.0</feature>
+		<feature>ejbLite-3.2</feature>
+		<feature>jaxrs-2.1</feature>
+    	<feature>jms-2.0</feature>
+		<feature>mdb-3.2</feature>
+		<feature>mpReactiveStreams-1.0</feature>
+		<feature>wmqJmsClient-2.0</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+                  
+	<variable name="wmqJmsClient.rar.location" value="${shared.resource.dir}/wmq.jmsra.rar"/>
+	
+	<logging traceSpecification="*=info:com.ibm.example.*=finest"/>
+	
+    <jmsQueueConnectionFactory jndiName="jms/QCF">
+    	<properties.wmqJms channel="SYSTEM.DEF.SVRCONN" hostName="MQHostName" queueManager="QMGRName"/>
+    	<connectionManager connectionTimeout="5s" maxPoolSize="10" minPoolSize="0" maxIdleTime="5m" agedTimeout="-1"/>
+    </jmsQueueConnectionFactory>
+    
+    <jmsQueue id="InQ" jndiName="jms/InQ">
+    	<properties.wmqJms baseQueueManagerName="QMGRName" baseQueueName="IN.Q"/>
+    </jmsQueue>
+    
+	<jmsQueue id="OutQ" jndiName="jms/OutQ">
+    	<properties.wmqJms baseQueueManagerName="QMGRName" baseQueueName="OUT.Q"/>
+    </jmsQueue>
+    
+	<jmsActivationSpec id="MQStream/ActSpecInQ" maxEndpoints="5">
+		<properties.wmqJms channel="SYSTEM.DEF.SVRCONN" destinationRef="InQ" hostName="MQHostName" maxPoolDepth="5" queueManager="QMGRName"/>
+	</jmsActivationSpec>
+	
+	<jmsActivationSpec id="MQStream/ActSpecOutQ" maxEndpoints="5">
+		<properties.wmqJms channel="SYSTEM.DEF.SVRCONN" destinationRef="OutQ" hostName="MQHostName" maxPoolDepth="5" queueManager="QMGRName"/>
+	</jmsActivationSpec>
+</server>
