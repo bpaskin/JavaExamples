@@ -91,3 +91,6 @@ A basic example of using security constraints to protect pages/servlets.  In Lib
 
 # EventStreamsWithKafka
 Samples for Kafka with Producer, Consumer and Streams.  Can be used with IBM Cloud Event Streams by changing necessary parameters in the bootstrap.properties files.  Example with Open Liberty or Liberty.  Uses MicroProfile Config to inject parameters.  Producer is accessed through REST POST call to lookup search results on Google and return them.  Stream will filter them based on if "https" is used.
+
+# MQStream
+This is an example of an MQ/JMS Stream similar to that of Kafka.  Takes a REST POST, searches Google, sends the results to a JMS Queue, in this MQ, and an MDB picks up the message processes it through a MicroProfile Reactive Stream, and then sends those that have an 'https' in the URL are sent to the output Queue.  The Consumer then consumes those messages via an MDB and places the results in System.out.
