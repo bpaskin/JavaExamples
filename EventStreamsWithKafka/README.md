@@ -44,3 +44,5 @@ For the String Topic it takes the input Topic, matches it against the word 'Hell
 For the Result Topic it takes the input Topic, checks to see if the URL begins with 'https', and sends only those results to the output Topic.
 
 The Consumer should be setup to read the output Topic.
+
+17/06/2019 - Updated KafkaProducer to include MP OpenAPI for some testing
