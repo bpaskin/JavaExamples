@@ -47,6 +47,9 @@ If this is going to be run in Liberty, the application needs to be exanded using
 # Datasource Tester
 This is a small application that grabs a connection based on JDBC JNDI name and gets the Database information and tests the connection by receiving a list of tables.  Receiving the list of tables is necessary to actually test the connection since the connections in the datasource pool may be stale.  There is a single page that requires the input of the datasource JNDI name. Errors are written to System Error log. This was tested on tWASv8.5.5.x and Liberty.
 
+25/06/2019 - Updated to accept a JAX-RS POST request 
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d 'jndi/name/goes/here' 'http://host:port/DatasourceTester/rest/jndi
+
 # MicroProfileExample
 Using MicroProfile 1.3 and the features Config, Fault Tolerance, Health Check, Metrics, Rest Client, and OpenAPI.  Just a small sample of how to use these features together.
 
