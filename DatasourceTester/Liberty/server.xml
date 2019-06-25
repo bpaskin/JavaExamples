@@ -1,0 +1,30 @@
+<server description="DatasourceTester">
+
+    <featureManager>
+        <feature>jndi-1.0</feature>
+
+        <!-- JEE6 -->
+		<feature>jaxrs-1.1</feature>
+        <feature>jsf-2.0</feature>
+		<feature>servlet-3.0</feature>
+        <feature>jdbc-4.0</feature>
+
+        <!-- JEE7
+        <feature>jaxrs-2.0</feature>
+        <feature>jsf-2.2</feature>
+        <feature>servlet-3.1</feature>
+        <feature>jdbc-4.1</feature>
+        -->
+
+        <!-- JEE8
+        <feature>jaxrs-2.1</feature>
+        <feature>jsf-2.3</feature>
+        <feature>servlet-4.0</feature>
+        <feature>jdbc-4.2</feature>
+        -->
+	</featureManager>
+
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+    
+    <!-- Add the necessary datasource stanzas -->
+</server>
