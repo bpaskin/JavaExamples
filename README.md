@@ -97,3 +97,8 @@ Samples for Kafka with Producer, Consumer and Streams.  Can be used with IBM Clo
 
 # MQStream
 This is an example of an MQ/JMS Stream similar to that of Kafka.  Takes a REST POST, searches Google, sends the results to a JMS Queue, in this MQ, and an MDB picks up the message processes it through a MicroProfile Reactive Stream, and then sends those that have an 'https' in the URL are sent to the output Queue.  The Consumer then consumes those messages via an MDB and places the results in System.out.
+
+# PubSubStreamJSE11
+A Java SE 11 example of using the [Stream](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html) API, and [Flow.Publisher](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.Publisher.html) and [Flow.Subscriber](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.Subscriber.html) APIs, which replace the [Oberservable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Observable.html) and [Observer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Observer.html) APIs. No third party libraries required.  
+
+
