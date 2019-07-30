@@ -101,4 +101,6 @@ This is an example of an MQ/JMS Stream similar to that of Kafka.  Takes a REST P
 # PubSubStreamJSE11
 A Java SE 11 example of using the [Stream](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html) API, and [Flow.Publisher](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.Publisher.html) and [Flow.Subscriber](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Flow.Subscriber.html) APIs, which replace the [Oberservable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Observable.html) and [Observer](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Observer.html) APIs. No third party libraries required.  
 
+# Distributed PMI
+Written originally for tWASv7, but works upto tWASv9x.  This gathers PMI stats based on MBeans specificied in the Singleton.  The information is stored in a tWAS Object Cache and each Server in the Node updates the Object with the appropriate data.  The Servlet is used to display the data.
 
