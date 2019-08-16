@@ -25,15 +25,10 @@ public class MongoDAO {
 		var connection = client.getConnection();
 		LOGGER.finer("Have DB connection");
 
-		var dbs = connection.listDatabaseNames();
-		LOGGER.finer("Received DB List");
-
 		var dbList = new ArrayList<String>();
 
-		for (var s : dbs) {
-			dbList.add(s);
-			LOGGER.finer("Found DB: " + s);
-		}
+		connection.listDatabaseNames().into(dbList);
+		LOGGER.finer("Received DB List");
 
 		LOGGER.exiting(this.getClass().getCanonicalName(), "getDBNames");
 		return dbList;
