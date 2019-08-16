@@ -104,3 +104,5 @@ A Java SE 11 example of using the [Stream](https://docs.oracle.com/en/java/javas
 # Distributed PMI
 Written originally for tWASv7, but works upto tWASv9x.  This gathers PMI stats based on MBeans specificied in the Singleton.  The information is stored in a tWAS Object Cache and each Server in the Node updates the Object with the appropriate data.  The Servlet is used to display the data.
 
+# MongoJEE #
+Simple example using JEE to connect to MongoDB and return a list of available databases.
