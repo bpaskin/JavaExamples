@@ -106,3 +106,7 @@ Written originally for tWASv7, but works upto tWASv9x.  This gathers PMI stats b
 
 # MongoJEE #
 Simple example using JEE to connect to MongoDB and return a list of available databases.
+
+# JAXRSUpload #
+Simple JAX-RS 1.1 and higher upload of file with name and JSP form.
+
