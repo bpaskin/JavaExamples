@@ -27,7 +27,7 @@ public class Randomizer {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("inject/{min}/{max}")
 	public RandomResponse getRandomInject(@PathParam ("min") int min,@PathParam ("max") int max) {
-		return generator.generateResponse(-32768, 32767);
+		return generator.generateResponse(min, max);
 	}
 	
 	
