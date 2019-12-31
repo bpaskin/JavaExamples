@@ -12,7 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
-import org.jboss.resteasy.core.ExceptionAdapter;
 
 import com.ibm.enterprise.LocalRandomNumberGenerator;
 import com.ibm.rest.model.RandomResponse;
@@ -60,7 +59,7 @@ public class Randomizer {
 			return response;
 		} catch (URISyntaxException e) {
 			e.printStackTrace(System.err);
-			throw new ExceptionAdapter(e);
+			throw new RuntimeException(e);
 		}
 	}
 }
