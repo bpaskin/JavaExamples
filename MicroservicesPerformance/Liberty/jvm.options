@@ -1,0 +1,4 @@
+-Xms1G
+-Xmx1G
+-Dhttp.maxConnections=100
+-Dhttp.keepAlive=true

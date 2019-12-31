@@ -10,3 +10,5 @@ The tests consist of running 25 threads for a total of 10,000 times for a total 
 | no interface | 8057 ms |
 | remote | 10112 ms |
 | REST | 22530 ms |
+
+Tests running on Liberty 19.0.0.11 with AdoptOpenJDK 11.0.5+10 with OpenJ9 0.17.0 on Ubuntu Linux.
