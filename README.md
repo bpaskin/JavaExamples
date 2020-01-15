@@ -116,4 +116,5 @@ Results of running different tests on how Microservices perform in different sce
 # QuarkusMicroservicesPerformance #
 Results of running different tests on how Microservices perform in different scenarios using [Quarkus](https://quarkus.io) and [GraalVM](https://www.graalvm.org)
 
-
+# CXFExample #
+Simple example that exposes a single web service using Apache CXF.  This is done for App Servers and does not include Spring.
