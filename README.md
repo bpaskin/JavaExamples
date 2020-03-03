@@ -118,3 +118,6 @@ Results of running different tests on how Microservices perform in different sce
 
 # CXFExample #
 Simple example that exposes a single web service using Apache CXF.  This is done for App Servers and does not include Spring.
+
+# Log4J2 #
+Example with Log4J and Liberty.  I prefer JUL (Java Native Logging) as it does not need any additional classes.
