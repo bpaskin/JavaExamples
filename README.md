@@ -121,3 +121,6 @@ Simple example that exposes a single web service using Apache CXF.  This is done
 
 # Log4J2 #
 Example with Log4J and Liberty.  I prefer JUL (Java Native Logging) as it does not need any additional classes.
+
+# SpringbootWebLiberty #
+Sample creating a war from Springboot and Liberty and packaging it without the extraneous libraries to run as a standalone app.
