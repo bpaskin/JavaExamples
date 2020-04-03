@@ -1,0 +1,6 @@
+{
+	"http.port": 9080,
+	"mongo.host": "lovecraft",
+	"mongo.port": 27017,
+	"mongo.db": "MongoTest"
+}
