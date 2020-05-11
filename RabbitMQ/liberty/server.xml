@@ -1,0 +1,36 @@
+<server description="RabbitMQ Example">
+
+	<featureManager>
+		<feature>cdi-2.0</feature>
+		<feature>jndi-1.0</feature>
+		<feature>jms-2.0</feature>
+		<feature>jaxrs-2.1</feature>
+	</featureManager>
+
+	<httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+          
+	<!-- 
+		The resource adapter (RA) for Rabbit MQ must be download and placed in a directory for Liberty
+		to use.  In the example the adpter is placed in th shared resources directory 
+		wlp/usr/shared/resouces
+		
+		https://github.com/amqphub/amqp-10-resource-adapter
+		download resource archive (rar) : https://mvnrepository.com/artifact/org.amqphub.jca/resource-adapter/1.0.0
+	-->
+	<resourceAdapter autoStart="true" id="amqp" location="${shared.resource.dir}/resource-adapter-1.0.0.rar"/>
+
+	<!-- 
+		The jndiName of the connection factory must match that of the @JMSConnectionFactory name when using
+		JMS 2.0.
+		
+		The ClientID must be specified.  The JndiParameters must be updated appropriately
+	-->
+	<connectionFactory id="JMSCF" jndiName="jms/CF">
+		<properties.amqp 
+			ClientID="LibertyClient" 
+			ConnectionFactory="factory1" 
+			JndiParameters="java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;connectionFactory.factory1=amqp://localhost:5672/"/>
+	</connectionFactory>
+	
+	<!-- applications should be placed in the dropins directory -->
+</server>
