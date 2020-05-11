@@ -124,3 +124,6 @@ Example with Log4J and Liberty.  I prefer JUL (Java Native Logging) as it does n
 
 # SpringbootWebLiberty #
 Sample creating a war from Springboot and Liberty and packaging it without the extraneous libraries to run as a standalone app.
+
+# RabbitMQ #
+Using Liberty with Rabbit MQ with a Resource Adapter
