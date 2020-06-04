@@ -127,3 +127,6 @@ Sample creating a war from Springboot and Liberty and packaging it without the e
 
 # RabbitMQ #
 Using Liberty with Rabbit MQ with a Resource Adapter
+
+# JMSKafka #
+This is an example using the Payara Resouce Adpter to use a regular JMS interface to send and an MDB receive messages from Kafka.
