@@ -1,0 +1,37 @@
+<server description="JMS Kafka Server">
+
+    <featureManager>
+        <feature>cdi-2.0</feature>
+        <feature>ejbLite-3.2</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jms-2.0</feature>
+        <feature>mdb-3.2</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <!-- this is the hostname:port of the Kafka host -->
+    <variable name="kafkaHost" value="lovecraft:9092"/>
+
+    <!-- Resource Adapter must be downloaded and placed on the system.  Here it is being placed in the wlp/usr/shared/resources -->
+    <!-- The Resource Adapter could be downloaded from https://mvnrepository.com/artifact/fish.payara.cloud.connectors.kafka/kafka-rar -->
+    <resourceAdapter autoStart="true" id="kafkajms" location="${shared.resource.dir}/kafka-rar-0.5.0.rar">
+        <customize implementation="fish.payara.cloud.connectors.kafka.outbound.KafkaManagedConnectionFactory" interface="javax.resource.cci.ConnectionFactory"/>
+    </resourceAdapter>
+
+    <!-- Matches the injection of the @Resource to send messages -->
+    <connectionFactory jndiName="jms/CF">
+        <properties.kafkajms bootstrapServersConfig="${kafkaHost}"/>
+    </connectionFactory>
+
+    <!-- This is for picking up messages with the ID using appName/ClassName of the Message Listener -->
+    <activationSpec id="JMSKafka/Listener">
+        <properties.kafkajms bootstrapServersConfig="${kafkaHost}"/>
+    </activationSpec>
+
+    <!-- Must use the classloader with classProviderRef matching that of the resrouceAdapter -->
+    <webApplication id="JMSKafka" location="JMSKafka.war" name="JMSKafka">
+        <classloader classProviderRef="kafkajms"/>
+    </webApplication>
+
+</server>
