@@ -1,0 +1,35 @@
+<server description="JMS20 Example">
+
+    <featureManager>
+        <feature>cdi-2.0</feature>
+        <feature>ejbLite-3.2</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jaxws-2.2</feature>
+        <feature>jms-2.0</feature>
+        <feature>mdb-3.2</feature>
+        <feature>wmqJmsClient-2.0</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+    
+    <!-- Needed for IBM MQ.  This points to the IBM MQ Resource Adapter.  If using a differnt
+    MQ provider, then the Resource Adapter needs to be added -->
+    <variable name="wmqJmsClient.rar.location" value="${shared.resource.dir}/wmq.jmsra.rar"/>
+
+    <jmsConnectionFactory jndiName="jms/QCF">
+        <properties.wmqJms channel="HOST.TO.QMGR" hostName="qmgrHost" queueManager="QM1" shareConvAllowed="false"/>
+    </jmsConnectionFactory>
+
+    <jmsQueue id="INQ" jndiName="jms/INQ">
+        <properties.wmqJms baseQueueManagerName="QM1" baseQueueName="IN.Q"/>
+    </jmsQueue>
+
+    <jmsQueue jndiName="jms/OUTQ">
+        <properties.wmqJms baseQueueManagerName="QM1" baseQueueName="OUT.Q"/>
+    </jmsQueue>
+
+    <jmsActivationSpec id="JMS20/ProcessMessages" maxEndpoints="10">
+        <properties.wmqJms channel="HOST.TO.QMGR" destinationRef="INQ" hostName="qmgrHost" poolTimeout="15m" queueManager="QM1"/>
+    </jmsActivationSpec>
+
+</server>
