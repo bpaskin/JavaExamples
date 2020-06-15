@@ -130,3 +130,6 @@ Using Liberty with Rabbit MQ with a Resource Adapter
 
 # JMSKafka #
 This is an example using the Payara Resouce Adpter to use a regular JMS interface to send and an MDB receive messages from Kafka.
+
+# JMS20 #
+Exmaple using JMS20 simplified APIs and injecting the JMSContext with Web Services (JAX-WS) and RESTful Services (JAX-RS).  An MDB is used to move messages from the input Queue to output Queue.
