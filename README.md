@@ -133,3 +133,6 @@ This is an example using the Payara Resouce Adpter to use a regular JMS interfac
 
 # JMS20 #
 Exmaple using JMS20 simplified APIs and injecting the JMSContext with Web Services (JAX-WS) and RESTful Services (JAX-RS).  An MDB is used to move messages from the input Queue to output Queue.
+
+# ActiveMQ #
+Example of using Active MQ and the Resource Adapter with OpenLiberty/Liberty
