@@ -1,0 +1,29 @@
+<server description="ActiveMQ">
+
+    <featureManager>
+		<feature>ejbLite-3.2</feature>
+		<feature>jaxrs-2.1</feature>
+		<feature>jms-2.0</feature>
+		<feature>cdi-2.0</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint">
+    	<compression/>
+    </httpEndpoint>
+
+	<!--  Must download and include the ActiveMQ Resource Adapter
+	      RA can be found here: https://activemq.apache.org/resource-adapter -->
+    <resourceAdapter id="activemq" location="${shared.resource.dir}/activemq-rar-5.15.13.rar"/>
+ 
+ 	<!--  In this case my ActiveMQ has no security, so only the URL is needed -->
+    <jmsConnectionFactory jndiName="jms/CF">
+    	<properties.activemq ServerUrl="tcp://host:61616"/>
+    </jmsConnectionFactory>
+    
+    <!--  The application is going to send and receive the message from the same Queue.
+          The name of the Queue is in the PhysicalName parameter and is case sensitive -->	
+    <jmsQueue jndiName="jms/Q">
+        <properties.activemq PhysicalName="TEST"/>
+    </jmsQueue>
+
+</server>
