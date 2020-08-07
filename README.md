@@ -136,3 +136,6 @@ Exmaple using JMS20 simplified APIs and injecting the JMSContext with Web Servic
 
 # ActiveMQ #
 Example of using Active MQ and the Resource Adapter with OpenLiberty/Liberty
+
+# SBwithKafka #
+A Sample how to implement Spring/SpringBoot in OpenLiberty/WebSphere and use the security settings of the container (key/truststore).

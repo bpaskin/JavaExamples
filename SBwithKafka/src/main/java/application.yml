@@ -1,0 +1,10 @@
+server:
+  port: 9080
+  servlet:
+    context-path: / 
+               
+kafka.bootstrap.servers: server1:9093,server2:9093,server3:9093
+kafka.username: user
+kafka.password: password 
+kafka.security.protocol: SASL_SSL
+kafka.sasl.mechanism: PLAIN 

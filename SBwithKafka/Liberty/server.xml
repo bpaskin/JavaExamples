@@ -1,0 +1,19 @@
+<server description="SpringBoot with Kafka">
+
+	<featureManager>
+		<feature>servlet-4.0</feature>
+		<feature>springBoot-2.0</feature>
+		<feature>transportSecurity-1.0</feature>
+	</featureManager>
+
+	<httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint">
+		<compression serverPreferredAlgorithm="deflate"/>
+	</httpEndpoint>
+
+	<sslDefault sslProtocol="TLSv1.2" sslRef="mySSLSettings"/>
+	<ssl id="mySSLSettings" clientAuthenticationSupported="true"  keyStoreRef="defaultKeyStore" securityLevel="HIGH" sslProtocol="TLSv1.2" trustStoreRef="defaultTrustStore"/>
+	<keyStore id="defaultKeyStore" location="${server.config.dir}/resources/security/key.jks" password="{aes}encryptedPassword"/>
+	<keyStore id="defaultTrustStore" location="${server.config.dir}/resources/security/trust.jks" password="{aes}encryptedPassword"/>
+
+	<springBootApplication location="SBwithKafka-1.0.0.jar"/>
+</server>
