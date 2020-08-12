@@ -139,3 +139,7 @@ Example of using Active MQ and the Resource Adapter with OpenLiberty/Liberty
 
 # SBwithKafka #
 A Sample how to implement Spring/SpringBoot in OpenLiberty/WebSphere and use the security settings of the container (key/truststore).
+
+# SFTPCheck #
+Small Quarkus application that acts as a status indicator if a certain SFTP is up or down.
+
