@@ -39,10 +39,14 @@ public class RetrieveFile {
 	PasswordHelper security;
 	
 	public boolean retrieveFile() {
-		log.debug("Entering retrieveFile()");
+		log.debug("Entering retrieveFile()");	
 		log.debug("user: " + USERNAME + "\nhost: " + HOST + "\nport: " + PORT + "\nfilename:" + FILENAME);
 		
 		try {
+			if (null == USERNAME || null == PASSWORD || null == HOST || null == FILENAME || PORT == 0) {
+				throw new Exception ("Necessary properties not set, check application.properties file");
+			}
+			
 			PASSWORD = security.decrypt(PASSWORD);
 			
 			JSch jsch = new JSch();
@@ -53,13 +57,18 @@ public class RetrieveFile {
 			
 			ChannelSftp channel = (ChannelSftp) session.openChannel("sftp");
 			channel.connect();
-			channel.get(FILENAME, "/tmp/" + FILENAME);
+			
+			if (FILENAME.contains("/")) {
+				channel.get(FILENAME, "/tmp/" + FILENAME.substring(FILENAME.lastIndexOf("/") + 1));
+			} else {
+				channel.get(FILENAME, "/tmp/" + FILENAME);
+			}
 			channel.exit();
 			
 			session.disconnect();
 		} catch (SftpException e) {
 			status.setStatus(STATUS.DOWN);
-			log.error("Exception in SFTP : " + e.getMessage());
+			log.error("Exception in SFTP : ", e);
 			log.debug("Exiting retrieveFile()");
 			return false;
 		} catch (Exception e) {
