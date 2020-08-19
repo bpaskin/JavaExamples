@@ -32,6 +32,9 @@ public class RetrieveFile {
 	@ConfigProperty(name = "remote.filename")
 	String FILENAME;
 	
+	@ConfigProperty(name = "tmp.directory", defaultValue = "/tmp")
+	String TMPDIR;
+	
 	@Inject
 	Status status;
 	
@@ -51,21 +54,35 @@ public class RetrieveFile {
 			
 			JSch jsch = new JSch();
 			Session session = jsch.getSession(USERNAME, HOST, PORT);
+			
+			log.debug("Received SFTP Session");	
+			
 			session.setPassword(PASSWORD);
 			session.setConfig("StrictHostKeyChecking", "no");
 			session.connect(5000);
 			
+			log.debug("Session connected");
+			
 			ChannelSftp channel = (ChannelSftp) session.openChannel("sftp");
 			channel.connect();
 			
+			log.debug("Channel connected");
+			
 			if (FILENAME.contains("/")) {
-				channel.get(FILENAME, "/tmp/" + FILENAME.substring(FILENAME.lastIndexOf("/") + 1));
+				channel.get(FILENAME, TMPDIR + "/" + FILENAME.substring(FILENAME.lastIndexOf("/") + 1));
 			} else {
-				channel.get(FILENAME, "/tmp/" + FILENAME);
+				channel.get(FILENAME, TMPDIR + "/" + FILENAME);
 			}
+			
+			log.debug("Got file: " + FILENAME);
+
 			channel.exit();
 			
+			log.debug("Channel exit");
+			
 			session.disconnect();
+			
+			log.debug("Session disconnect");
 		} catch (SftpException e) {
 			status.setStatus(STATUS.DOWN);
 			log.error("Exception in SFTP : ", e);
