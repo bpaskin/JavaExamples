@@ -13,6 +13,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
 
+
 @RequestScoped
 public class RetrieveFile {
 	private Logger log = LoggerFactory.getLogger(RetrieveFile.class);
@@ -35,6 +36,11 @@ public class RetrieveFile {
 	@ConfigProperty(name = "tmp.directory", defaultValue = "/tmp")
 	String TMPDIR;
 	
+	@ConfigProperty(name = "remote.stayConnected", defaultValue = "false")
+	boolean STAY_CONNECTED;
+
+	static Session session;
+	
 	@Inject
 	Status status;
 	
@@ -52,16 +58,18 @@ public class RetrieveFile {
 			
 			PASSWORD = security.decrypt(PASSWORD);
 			
-			JSch jsch = new JSch();
-			Session session = jsch.getSession(USERNAME, HOST, PORT);
-			
-			log.debug("Received SFTP Session");	
-			
-			session.setPassword(PASSWORD);
-			session.setConfig("StrictHostKeyChecking", "no");
-			session.connect(5000);
-			
-			log.debug("Session connected");
+			if (null == session || !session.isConnected()) {
+				log.debug("Session is null or not connected");	
+				JSch jsch = new JSch();
+				session = jsch.getSession(USERNAME, HOST, PORT);
+				log.debug("Received SFTP Session");	
+				
+				session.setPassword(PASSWORD);
+				session.setConfig("StrictHostKeyChecking", "no");
+				session.connect(5000);
+				
+				log.debug("Session connected");
+			}
 			
 			ChannelSftp channel = (ChannelSftp) session.openChannel("sftp");
 			channel.connect();
@@ -80,9 +88,12 @@ public class RetrieveFile {
 			
 			log.debug("Channel exit");
 			
-			session.disconnect();
+			if (!STAY_CONNECTED) {
+				session.disconnect();
+				log.debug("Session disconnect");
+			}
 			
-			log.debug("Session disconnect");
+			log.debug("Session remains connected");
 		} catch (SftpException e) {
 			status.setStatus(STATUS.DOWN);
 			log.error("Exception in SFTP : ", e);
