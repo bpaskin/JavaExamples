@@ -4,7 +4,7 @@ If there is more than one application server or application in a cluster there i
 
 This example using OpenLiberty/Liberty uses JGroups.  The example is a simple REST query that goes to a database to retrieve all frields in a table and returns the results in JSON format.  
 
-1. Create a directory on the host system that contains the necessary JGroups and Eclipse Extensions libraries.  As of this writing, Eclipse 2.x does not support JGroups 5.x.  Liberty 20.0.0.9, uses EclipseLink 2.x.
+1. Create a directory on the host system that contains the necessary JGroups and Eclipse Extensions libraries.  As of this writing, Eclipse 2.x does not support JGroups 5.x.  Liberty 20.0.0.9 uses EclipseLink 2.x.
 
 JGroups: 
 https://mvnrepository.com/artifact/org.jgroups/jgroups
