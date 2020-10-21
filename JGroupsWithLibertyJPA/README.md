@@ -27,6 +27,6 @@ https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persisten
 ```
 This tells EclipseLink to use JGroups and where the JGroups configuration file is located and named.
 
-4. Update the `jgroupsConfig.xml` file and update the hostnames and ports.  In the sample TCP is being used, but JGroups supports other protocols, like UDP.
+4. Update the `jgroupsConfig.xml` file and update the hostnames and ports.  In the sample TCP is being used, but JGroups supports other protocols, like UDP.  To see other configuration examples the [JGroups GitHub](https://github.com/belaban/JGroups/tree/master/conf) has them.
 
 5. The only programming difference is that in JPA the regular annotation for caching is `@Cacheable`, however the application must use the specific EclipseLink `@Cache` which can be seen in the `Perfuser` Entity.
