@@ -1,0 +1,49 @@
+<server description="JGroups with Liberty JPA">
+
+    <!-- Features enabled for this sample application -->
+    <featureManager>
+        <feature>jdbc-4.2</feature>
+        <feature>servlet-4.0</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>ejbLite-3.2</feature>
+        <feature>cdi-2.0</feature>
+        <feature>jpa-2.2</feature>
+    </featureManager>
+
+    <!-- Listen on port 9080 and allow any host to connect -->
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint">
+        <compression/>
+    </httpEndpoint>
+    
+    <!-- Library for the MySQL driver -->
+    <library id="MySQL" name="MySQL">
+        <fileset dir="${shared.resource.dir}" includes="mysql-connector-java-x.x.x.jar"/>
+    </library>
+
+    <!-- Datasource to connect to the Database.  JNDI name must match that in the persistence.xml file -->
+    <dataSource id="users" jndiName="jdbc/users" queryTimeout="2000" type="javax.sql.ConnectionPoolDataSource">
+        <jdbcDriver javax.sql.ConnectionPoolDataSource="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource" libraryRef="MySQL"/>
+        <properties URL="jdbc:mysql://host:3306/devworks" password="{aes}encoded password" serverTimezone="UTC" useJDBCCompliantTimezoneShift="true" useLegacyDatetimeCode="false" useUnicode="true" user="userName"/>
+        <connectionManager agedTimeout="-1" connectionTimeout="1s" maxIdleTime="2m" maxPoolSize="10" minPoolSize="0" purgePolicy="FailingConnectionOnly"/>
+    </dataSource>
+
+    <!-- JGroup and EclipseLink Extensions are placed in a shared library  
+        JGroups 5.x does not work with EclipseLink 2.x  https://mvnrepository.com/artifact/org.jgroups/jgroups
+        As of this example EclipseLink Extension is 2.7.7 
+        extension: https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.extension
+        core: https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.core
+        asm: https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.asm
+    -->
+    <library id="JGroups" name="JGroups">
+        <fileset dir="${shared.resource.dir}/JGroups" includes="*.jar"/>
+    </library>
+
+    <!-- Place the application in the apps directory.  This uses the shared library and allows third-party APIs needed to work -->
+    <webApplication id="JGroupsWithJPA" location="JGroupsWithJPA.war" name="JGroupsWithJPA">
+        <classloader apiTypeVisibility="+third-party" privateLibraryRef="JGroups"/>
+    </webApplication>
+
+    <!-- Use for debugging JGroups, if needed
+        <logging traceSpecification="org.jgroups.*=all"/>
+    -->
+</server>
